@@ -1,0 +1,10 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+
+    emg_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+emg_state_broadcaster:
+  ros__parameters:
+    use_local_topics: true

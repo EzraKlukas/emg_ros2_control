@@ -1,0 +1,26 @@
+<robot name="emg_acquisition">
+  <link name="base_link"/>
+
+  <ros2_control name="RedPitayaEmg" type="sensor">
+    <hardware>
+      <plugin>rp_emg_hardware/RedPitayaEmgSensor</plugin>
+      <param name="host">192.168.55.100</param>
+      <param name="port">5000</param>
+      <param name="prefill_packets">3</param>
+      <param name="queue_capacity_packets">64</param>
+    </hardware>
+
+    <sensor name="intan_0">
+      <state_interface name="ch_00_raw"/>
+      <state_interface name="ch_01_raw"/>
+    </sensor>
+
+    <sensor name="emg_stream">
+      <state_interface name="valid"/>
+      <state_interface name="new_packet"/>
+      <state_interface name="packet_sequence"/>
+      <state_interface name="queue_depth"/>
+      <state_interface name="receive_age_s"/>
+    </sensor>
+  </ros2_control>
+</robot>
